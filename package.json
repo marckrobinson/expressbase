@@ -1,0 +1,27 @@
+{
+    "name": "expressbase",
+    "version": "1.0.0",
+    "engines": {
+        "node": "6.1.0"
+    },
+    "description": "Simple Express starting point",
+    "main": "app.js",
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "author": {
+        "email": "marck.robinson@gmail.com",
+        "name": "Marck Robinson"
+    },
+    "license": "ISC",
+    "dependencies": {
+        "body-parser": "^1.15.1",
+        "express": "^4.13.4",
+        "mime": "^1.3.4"
+    },
+    "devDependencies": {},
+    "repository": {
+        "type": "git",
+        "url": "https://github.com//marckrobinson/expressbase"
+    }
+}

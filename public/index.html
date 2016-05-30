@@ -1,0 +1,32 @@
+<html>
+    <head>
+        <title>Express Static File</title>
+    </head>
+    <body>
+        <h1>Express Static File</h1>
+        <p>Call the <a href="/hw">Hello World</a> GET contoller.</p>
+        <p>Call the <a href="#" onclick="postHW()">Hello World</a> POST controller.</p>
+        <div id="PostReturn"></div>
+    <script>
+        function postHW() {
+            fetch('/hw', {
+                method: 'POST',
+                headers: {
+                    'Accept': 'application/json',
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({
+                    name: 'Hello World',
+                    login: 'hw'
+                })
+            }).then((response) => {
+                return response.json();
+            }).then((data) => {
+                console.log("Received:",data);
+                document.getElementById("PostReturn").innerHTML = JSON.stringify(data);
+            });
+        }
+    </script>
+    </body>
+</html>
+        
