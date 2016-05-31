@@ -10,5 +10,15 @@ server.route(webserver_1.WebServer.RouteType.POST, "/hw", (req, res) => {
     req.body.serverValue = "This is from the POST!";
     res.end(JSON.stringify(req.body));
 });
+server.route(webserver_1.WebServer.RouteType.GET, "/diagnostics", (req, res) => {
+    let diags = {
+        arch: process.arch,
+        platform: process.platform,
+        title: process.title,
+        uptime: process.uptime(),
+        versions: process.versions
+    };
+    res.end(JSON.stringify(diags));
+});
 server.listen(port);
 //# sourceMappingURL=Server.js.map

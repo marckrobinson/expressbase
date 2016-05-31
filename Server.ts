@@ -13,4 +13,15 @@ server.route(WebServer.RouteType.POST,"/hw", (req, res) => {
     res.end(JSON.stringify(req.body));        
 });
 
+server.route(WebServer.RouteType.GET,"/diagnostics", (req, res) => {
+    let diags = {
+        arch: process.arch,
+        platform: process.platform,
+        title: process.title,
+        uptime: process.uptime(),
+        versions: process.versions
+    };
+    res.end(JSON.stringify(diags));        
+});
+
 server.listen(port);
