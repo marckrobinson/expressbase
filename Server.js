@@ -1,16 +1,16 @@
 "use strict";
-const webserver_1 = require("./webserver");
+const WebServer_1 = require("./WebServer");
 const port = process.env.port || 3000;
-const server = new webserver_1.WebServer.Server('public');
-server.route(webserver_1.WebServer.RouteType.GET, "/hw", (req, res) => {
+const server = new WebServer_1.WebServer.Server('public');
+server.route(WebServer_1.WebServer.RouteType.GET, "/hw", (req, res) => {
     res.send('<h1>Hello World GET Controller</h1><a href="/">Back to home</a>');
 });
-server.route(webserver_1.WebServer.RouteType.POST, "/hw", (req, res) => {
+server.route(WebServer_1.WebServer.RouteType.POST, "/hw", (req, res) => {
     console.log("PUT called:", req.body);
     req.body.serverValue = "This is from the POST!";
     res.end(JSON.stringify(req.body));
 });
-server.route(webserver_1.WebServer.RouteType.GET, "/diagnostics", (req, res) => {
+server.route(WebServer_1.WebServer.RouteType.GET, "/diagnostics", (req, res) => {
     let diags = {
         arch: process.arch,
         platform: process.platform,

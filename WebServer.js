@@ -49,4 +49,4 @@ var WebServer;
     }
     WebServer.Server = Server;
 })(WebServer = exports.WebServer || (exports.WebServer = {}));
-//# sourceMappingURL=webserver.js.map
+//# sourceMappingURL=WebServer.js.map
