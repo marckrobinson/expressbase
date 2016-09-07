@@ -4,18 +4,18 @@ idea is to use this as a starting point for other projects.  It doesn't do anyth
 useful by itself.  I was just tired of plumbing the basics every time I needed
 a new server project, which comes up more often than one might think. :smile:
 
-##It utilizes:
+## It utilizes:
 * Typescript
 * Typings (Typescript definitions for existing npm modules)
 * VS Code setup for auto compile on typescript
 
-##It demonstrates:
+## It demonstrates:
 * Static pages
 * GET controller
 * POST controller
 * ES6 imports and targets
 
-##To get started:
+## To get started:
 1. Clone the project
 2. CD into the repo directory
 3. Run: `typings install`
