@@ -1,0 +1,59 @@
+<html>
+    <head>
+        <title>Browser Timing Tests</title>
+    </head>
+    <body>
+        <h1>Browser Timing Tests</h1>
+        <br>URL: <span id="fhref"></span>
+        <br>Visibility: <span id="ishidden"></span>
+        <br>Expected: <span id="expected">0</span>
+        <br>setInterval: <span id="setinterval">0</span>
+        <br>setTimeout: <span id="settimeout">0</span>
+        <br>animationFrame: <span id="animationframe">0</span>
+        <iframe style="position:absolute; width:1px; height:1px; top:-5000px; left:-5000px"
+            src="frame.html"> </iframe>
+    <script>
+        var delay = 200;
+        var fhref = document.getElementById("fhref");
+        var ishidden = document.getElementById("ishidden");
+        var expected = document.getElementById("expected");
+        var intervalFrame = document.getElementById("setinterval");
+        var timeoutFrame = document.getElementById("settimeout");
+        var animationFrame = document.getElementById("animationframe");
+
+        var intervalCount = 0;
+        var timeoutCount = 0;
+        var animationCount = 0;
+
+        window.addEventListener("message", (event) => {
+            //console.log(data);
+            fhref.innerHTML = event.data.href;
+            ishidden.innerHTML = event.data.hidden ? "hidden" : "visible";
+
+            var ts = window.performance.now();
+            intervalFrame.innerHTML = event.data.intervalCount;
+            timeoutFrame.innerHTML = event.data.timeoutCount;
+            animationFrame.innerHTML = Math.floor(event.data.animationCount * delay / ts);
+            expected.innerHTML = Math.floor(ts / delay);
+        }, false);
+
+        // setInterval(() => {
+        //     intervalFrame.innerHTML = ++intervalCount;
+        //     expected.innerHTML = Math.floor(window.performance.now() / delay);
+        // }, delay);
+
+        // function timeoutfn() {
+        //     timeoutFrame.innerHTML = ++timeoutCount;
+        //     setTimeout(timeoutfn,delay);
+        // }
+        // setTimeout(timeoutfn,delay);
+
+        // function animation(ts) {
+        //     animationFrame.innerHTML = Math.floor(++animationCount * delay / ts);
+        //     requestAnimationFrame(animation);
+        // }
+        // requestAnimationFrame(animation);
+    </script>
+    </body>
+</html>
+        

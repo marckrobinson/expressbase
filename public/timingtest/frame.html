@@ -1,0 +1,36 @@
+<head>
+    <title>Browser Timing Frame</title>
+    <script>
+        var delay = 200;
+
+        var vals = {
+            href: window.location.href,
+            hidden: document.hidden,
+            intervalCount: 0,
+            timeoutCount: 0,
+            animationCount: 0
+        };
+
+        setInterval(() => {
+            window.parent.postMessage(vals, "*");
+        }, 1000);
+
+        setInterval(() => {
+            vals.intervalCount++;
+        }, delay);
+
+        function timeoutfn() {
+            vals.timeoutCount++;
+            setTimeout(timeoutfn, delay);
+        }
+        setTimeout(timeoutfn, delay);
+
+        function animation(ts) {
+            vals.animationCount++;
+            requestAnimationFrame(animation);
+        }
+        requestAnimationFrame(animation);
+    </script>
+</body>
+
+</html>
