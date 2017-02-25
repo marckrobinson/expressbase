@@ -1,7 +1,7 @@
 import {Server,RouteType} from "./WebServer";
 
 const port = process.env.port || 3000;
-const server = new Server(['public','node_modules/bootstrap');
+const server = new Server(['public','node_modules/bootstrap']);
 
 server.route(RouteType.GET,"/hw", (req, res) => {
     res.send('<h1>Hello World GET Controller</h1><a href="/">Back to home</a>');    

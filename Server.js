@@ -1,3 +1,5 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
 var WebServer_1 = require("./WebServer");
 var port = process.env.port || 3000;
 var server = new WebServer_1.Server(['public', 'node_modules/bootstrap']);

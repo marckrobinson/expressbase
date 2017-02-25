@@ -1,5 +1,7 @@
-var express = require('express');
-var body_parser_1 = require('body-parser');
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+var express = require("express");
+var body_parser_1 = require("body-parser");
 var RouteType;
 (function (RouteType) {
     RouteType[RouteType["GET"] = 0] = "GET";
@@ -10,8 +12,8 @@ var RouteType;
 exports.RouteType = RouteType;
 var Server = (function () {
     function Server(publicdir) {
-        var _this = this;
         if (publicdir === void 0) { publicdir = ['public']; }
+        var _this = this;
         this.app = express();
         // Static files go in publicdir
         publicdir.forEach(function (path) {
@@ -49,6 +51,6 @@ var Server = (function () {
         }
     };
     return Server;
-})();
+}());
 exports.Server = Server;
 //# sourceMappingURL=WebServer.js.map
